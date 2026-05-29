@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-/**
- * Simplified B+ Tree style range index. For brevity we back it with a sorted
- * map (TreeMap), exposing the operations that matter for the project:
- * insertion of (dueDay -> vaccinationLabel) pairs and range queries that
- * return all entries within an inclusive date range.
- */
 public class BPlusTree {
 
     private final TreeMap<Integer, List<String>> index = new TreeMap<>();

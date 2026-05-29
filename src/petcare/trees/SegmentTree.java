@@ -1,9 +1,5 @@
 package petcare.trees;
 
-/**
- * Segment tree supporting range-sum and point-update over an integer array
- * (e.g., daily clinic visit counts).
- */
 public class SegmentTree {
 
     private final int n;

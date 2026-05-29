@@ -1,13 +1,10 @@
 package petcare.sorting;
 
 import petcare.models.Treatment;
+
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Generic merge sort — used to sort pet medical records (e.g., by Pet ID
- * or treatment cost). Time complexity O(n log n), stable.
- */
 public class MergeSort {
 
     public static void sortTreatmentsByCost(List<Treatment> data) {

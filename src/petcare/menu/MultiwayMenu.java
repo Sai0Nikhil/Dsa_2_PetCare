@@ -1,10 +1,10 @@
 package petcare.menu;
 
+import petcare.models.Vaccination;
 import petcare.trees.BPlusTree;
 import petcare.trees.BTree;
 import petcare.trees.FenwickTree;
 import petcare.trees.SegmentTree;
-import petcare.models.Vaccination;
 import petcare.utils.DataGenerator;
 import petcare.utils.DisplayUtils;
 import petcare.utils.InputUtils;
@@ -12,9 +12,6 @@ import petcare.utils.InputUtils;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Module M2 - Multiway Trees & Range Query Structures.
- */
 public class MultiwayMenu {
 
     public void show() {

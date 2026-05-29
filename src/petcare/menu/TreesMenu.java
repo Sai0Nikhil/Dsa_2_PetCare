@@ -1,17 +1,15 @@
 package petcare.menu;
 
+import petcare.models.Pet;
 import petcare.trees.AVLTree;
 import petcare.trees.BST;
-import petcare.models.Pet;
+import petcare.utils.AppData;
 import petcare.utils.DataGenerator;
 import petcare.utils.DisplayUtils;
 import petcare.utils.InputUtils;
 
 import java.util.List;
 
-/**
- * Module M1 - Trees and Balanced Search Structures.
- */
 public class TreesMenu {
 
     private final BST bst = new BST();
@@ -46,10 +44,11 @@ public class TreesMenu {
     }
 
     private void seed() {
-        List<Pet> pets = DataGenerator.generatePets(10);
+        List<Pet> pets = AppData.getPetsOrGenerate(10);
         for (Pet p : pets) { bst.insert(p); avl.insert(p); }
         seeded = true;
-        DisplayUtils.ok("Seeded 10 pets into BST and AVL.");
+        DisplayUtils.ok("Seeded " + pets.size() + " pets into BST and AVL"
+                + (AppData.isCsvMode() ? " (from CSV)." : " (generated)."));
         DisplayUtils.printAll(pets);
     }
 

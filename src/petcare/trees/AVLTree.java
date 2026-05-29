@@ -1,12 +1,10 @@
 package petcare.trees;
 
 import petcare.models.Pet;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Self-balancing AVL tree for pet medical records keyed on PetID.
- */
 public class AVLTree {
 
     private static class Node {

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PetCare – Viva Guide</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Segoe UI, Arial, sans-serif; font-size:11pt; color:#222;
+         background:#f4f6fa; padding:30px; }
+  .container { max-width:900px; margin:0 auto; background:#fff;
+               border-radius:8px; padding:36px 44px; box-shadow:0 2px 12px #0001; }
+
+  h1 { font-size:20pt; color:#1F5C99; margin-bottom:4px; }
+  .subtitle { color:#666; font-size:10pt; margin-bottom:28px; }
+
+  h2 { font-size:13pt; color:#fff; background:#1F5C99; padding:8px 14px;
+       border-radius:4px; margin:28px 0 10px; }
+  h3 { font-size:11.5pt; color:#1F5C99; margin:16px 0 6px; border-bottom:2px solid #D5E8F0;
+       padding-bottom:3px; }
+
+  p { margin-bottom:8px; line-height:1.6; }
+  ul, ol { margin:6px 0 10px 22px; line-height:1.7; }
+  li { margin-bottom:3px; }
+
+  .qa { background:#f0f6ff; border-left:4px solid #1F5C99; border-radius:4px;
+        padding:12px 16px; margin:10px 0; }
+  .q { font-weight:bold; color:#1F5C99; margin-bottom:6px; }
+  .a { color:#333; }
+
+  .tag { display:inline-block; background:#1F5C99; color:#fff;
+         font-size:8.5pt; padding:2px 8px; border-radius:10px; margin-right:4px; }
+  .tag-green { background:#2e7d32; }
+  .tag-orange { background:#e65100; }
+
+  table { width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:10pt; }
+  th { background:#D5E8F0; font-weight:bold; padding:8px 10px; text-align:left;
+       border:1px solid #aaa; }
+  td { padding:7px 10px; border:1px solid #ccc; vertical-align:top; }
+  tr:nth-child(even) { background:#f7fbff; }
+
+  .pitch { background:#fffbe6; border:1.5px solid #f9a825; border-radius:6px;
+           padding:14px 18px; margin:10px 0; font-style:italic; line-height:1.7; }
+
+  .tip { background:#e8f5e9; border-left:4px solid #2e7d32; border-radius:4px;
+         padding:10px 14px; margin:10px 0; font-size:10pt; }
+
+  .warn { background:#fff3e0; border-left:4px solid #e65100; border-radius:4px;
+          padding:10px 14px; margin:10px 0; font-size:10pt; }
+
+  @media print { body { background:#fff; padding:0; }
+                 .container { box-shadow:none; padding:20px; }
+                 .no-print { display:none; } }
+
+  .print-btn { display:inline-block; margin-bottom:22px; padding:8px 20px;
+               background:#1F5C99; color:#fff; border:none; border-radius:4px;
+               font-size:10.5pt; cursor:pointer; font-family:inherit; }
+  .print-btn:hover { background:#174a7e; }
+  code { background:#eef; padding:1px 5px; border-radius:3px; font-size:10pt; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<button class="print-btn no-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+<h1>PetCare – Viva Preparation Guide</h1>
+<div class="subtitle">Smart Veterinary Clinic &amp; Pet Health Management System &nbsp;|&nbsp;
+Project #24 &nbsp;|&nbsp; DSA2 Mid Review</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>🎤 30-Second Pitch (Start Every Viva With This)</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<div class="pitch">
+"Sir, our project is <strong>PetCare</strong> — a Java-based command-line application that models
+a real veterinary clinic management system. We chose this domain because it gives us natural,
+meaningful use-cases for all the data structures we have studied. For example, we use an
+<strong>AVL Tree</strong> to index pet records by ID so that search is always O(log n), a
+<strong>Graph</strong> to represent the clinic network and find shortest routes between branches
+using Dijkstra, and <strong>Merge Sort</strong> to rank treatment records by cost.
+The application also lets us load 45 real pet records from a CSV file at startup.
+Modules for Greedy and DP are planned and marked Coming Soon."
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>📦 Project Overview</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What the project does</h3>
+<ul>
+  <li>Manages <strong>pet profiles</strong> (ID, name, species, breed, age, owner)</li>
+  <li>Indexes records using <strong>BST and AVL Trees</strong></li>
+  <li>Models a <strong>6-clinic healthcare network</strong> as a weighted graph</li>
+  <li>Finds shortest routes between clinics using three different algorithms</li>
+  <li>Sorts treatment records by cost, frequency, and more</li>
+  <li>Loads 45 pet records from <code>data/pets.csv</code> or generates them on-the-fly</li>
+</ul>
+
+<h3>Package structure</h3>
+<table>
+  <tr><th>Package</th><th>Contains</th></tr>
+  <tr><td><code>petcare.models</code></td><td>Pet, Treatment, Appointment, Vaccination, Clinic</td></tr>
+  <tr><td><code>petcare.utils</code></td><td>InputUtils, DisplayUtils, DataGenerator, AppData, CsvLoader</td></tr>
+  <tr><td><code>petcare.menu</code></td><td>StartupMenu, MainMenu, and one sub-menu per module</td></tr>
+  <tr><td><code>petcare.trees</code></td><td>BST, AVLTree, BTree, BPlusTree, SegmentTree, FenwickTree</td></tr>
+  <tr><td><code>petcare.graphs</code></td><td>Graph, BFS, DFS, MST, Dijkstra, BellmanFord, FloydWarshall, TopologicalSort</td></tr>
+  <tr><td><code>petcare.sorting</code></td><td>MergeSort, QuickSort, HeapSort, RadixSort</td></tr>
+  <tr><td><code>petcare.algorithms</code></td><td>ActivitySelection, FractionalKnapsack, ZeroOneKnapsack, LIS</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>🌳 M1 – Trees &amp; Balanced Search Structures</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What we implemented</h3>
+<ul>
+  <li><strong>BST</strong> — insert, search, delete, in-order/pre-order/post-order traversals</li>
+  <li><strong>AVL Tree</strong> — self-balancing BST using rotations (LL, RR, LR, RL)</li>
+  <li>Height comparison between BST and AVL on the same dataset</li>
+</ul>
+
+<h3>Domain use-case</h3>
+<p>Pet records are indexed by <code>PetID</code>. A plain BST gives O(log n) average but O(n) worst case on sorted insertions. The AVL Tree guarantees O(log n) always by re-balancing after every insert/delete. In-order traversal produces a sorted treatment history.</p>
+
+<div class="qa">
+  <div class="q">Q: What is the difference between BST and AVL?</div>
+  <div class="a">A BST has no balance guarantee — if you insert sorted data it becomes a linked list with O(n) operations. An AVL Tree enforces the balance factor (−1, 0, or +1) at every node using rotations, keeping the height at most 1.44 log n, which guarantees O(log n) for insert, search, and delete.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What are the four AVL rotations?</div>
+  <div class="a">
+    <ul>
+      <li><strong>LL rotation</strong> (right rotation) — inserted left of left child</li>
+      <li><strong>RR rotation</strong> (left rotation) — inserted right of right child</li>
+      <li><strong>LR rotation</strong> (left-right) — inserted right of left child: first left-rotate child, then right-rotate root</li>
+      <li><strong>RL rotation</strong> (right-left) — inserted left of right child: first right-rotate child, then left-rotate root</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What are the three tree traversals and their uses?</div>
+  <div class="a">
+    <ul>
+      <li><strong>In-order (Left→Root→Right)</strong> — gives sorted output for a BST</li>
+      <li><strong>Pre-order (Root→Left→Right)</strong> — useful for copying/serializing the tree</li>
+      <li><strong>Post-order (Left→Right→Root)</strong> — useful for deleting the tree</li>
+    </ul>
+  </div>
+</div>
+
+<table>
+  <tr><th>Operation</th><th>BST (avg)</th><th>BST (worst)</th><th>AVL</th></tr>
+  <tr><td>Insert</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td></tr>
+  <tr><td>Search</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td></tr>
+  <tr><td>Delete</td><td>O(log n)</td><td>O(n)</td><td>O(log n)</td></tr>
+  <tr><td>Space</td><td>O(n)</td><td>O(n)</td><td>O(n)</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>🌲 M2 – Multiway Trees &amp; Range Queries</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What we implemented</h3>
+<ul>
+  <li><strong>B-Tree (order 3)</strong> — multiway search tree for clinic record IDs</li>
+  <li><strong>B+ Tree</strong> — range index for vaccination schedules</li>
+  <li><strong>Segment Tree</strong> — range sum queries on daily clinic visit counts</li>
+  <li><strong>Fenwick Tree (BIT)</strong> — cumulative treatment statistics with prefix sums</li>
+</ul>
+
+<div class="qa">
+  <div class="q">Q: Why use a B-Tree instead of an AVL Tree for database indexing?</div>
+  <div class="a">B-Trees are designed for disk storage. Each node can hold many keys (reducing the number of disk reads). An AVL Tree node holds one key, so for a million records you'd need ~20 disk reads. A B-Tree with order 500 needs only 3–4 disk reads for the same data. B+ Trees also keep all data in leaves linked as a list, making range queries very fast.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is the difference between B-Tree and B+ Tree?</div>
+  <div class="a">In a B-Tree, data records are stored in both internal and leaf nodes. In a B+ Tree, internal nodes store only keys for routing, and ALL data records are stored in leaf nodes which are linked together. This makes B+ Trees better for range queries: once you find the start key you just follow the leaf linked list.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: How does a Segment Tree work?</div>
+  <div class="a">A Segment Tree is a binary tree where each node stores the aggregate (sum, min, max) of a range of the array. The root covers the full array, its children cover halves, and so on. A range query is answered in O(log n) by combining at most O(log n) nodes. Point updates also take O(log n).</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is a Fenwick Tree (BIT)?</div>
+  <div class="a">A Binary Indexed Tree stores partial sums using bit manipulation. Each index i stores the sum of a range of length equal to the lowest set bit of i. Prefix sum and point update are both O(log n), and the space is O(n) — simpler to code than a Segment Tree for pure prefix sum queries.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>🔗 M3 – Graph Algorithms</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What we implemented</h3>
+<ul>
+  <li>Graph of <strong>6 clinics</strong> (vertices) connected by referral links (weighted edges)</li>
+  <li><strong>BFS</strong> — finds nearest clinics by hop-count</li>
+  <li><strong>DFS</strong> — checks workflow connectivity and counts connected components</li>
+  <li><strong>MST via Kruskal</strong> — cheapest backbone using Union-Find + sorted edges</li>
+  <li><strong>MST via Prim</strong> — cheapest backbone using greedy min-edge selection</li>
+</ul>
+
+<h3>The clinic network</h3>
+<table>
+  <tr><th>Node</th><th>Clinic</th><th>City</th></tr>
+  <tr><td>0</td><td>MainVet</td><td>Chennai</td></tr>
+  <tr><td>1</td><td>PawCare</td><td>Bangalore</td></tr>
+  <tr><td>2</td><td>AnimalAid</td><td>Hyderabad</td></tr>
+  <tr><td>3</td><td>PetHaven</td><td>Mumbai</td></tr>
+  <tr><td>4</td><td>VetPlus</td><td>Delhi</td></tr>
+  <tr><td>5</td><td>HappyTails</td><td>Pune</td></tr>
+</table>
+
+<div class="qa">
+  <div class="q">Q: What is the difference between BFS and DFS?</div>
+  <div class="a">BFS explores level by level (nearest nodes first) using a <strong>Queue</strong>. It finds the shortest path in unweighted graphs. DFS explores as deep as possible first using a <strong>Stack</strong> (or recursion). BFS is better for shortest paths; DFS is better for detecting cycles, connected components, and topological sort.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is an MST? Kruskal vs Prim?</div>
+  <div class="a">A Minimum Spanning Tree connects all vertices with minimum total edge weight and no cycles. <strong>Kruskal's</strong> sorts all edges by weight and greedily adds edges that don't form a cycle (uses Union-Find). <strong>Prim's</strong> grows the tree from a starting vertex by always adding the cheapest edge connecting the tree to a new vertex. Both give O(E log E) for sparse graphs.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>🗺️ M4 – Shortest Path Algorithms</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What we implemented</h3>
+<ul>
+  <li><strong>Dijkstra</strong> — fastest route from one clinic to all others (positive weights)</li>
+  <li><strong>Bellman-Ford</strong> — handles negative referral weights, detects negative cycles</li>
+  <li><strong>Floyd-Warshall</strong> — all-pairs shortest distances (full matrix)</li>
+  <li><strong>Topological Sort</strong> — schedules treatment procedures (Admit→Diagnose→Surgery→...)</li>
+</ul>
+
+<div class="qa">
+  <div class="q">Q: When to use Dijkstra vs Bellman-Ford vs Floyd-Warshall?</div>
+  <div class="a">
+    <ul>
+      <li><strong>Dijkstra</strong> — single source, all edges positive, O((V+E) log V). Fastest for positive-weight graphs.</li>
+      <li><strong>Bellman-Ford</strong> — single source, can handle negative weights, detects negative cycles. O(VE). Slower but more general.</li>
+      <li><strong>Floyd-Warshall</strong> — all pairs shortest paths, O(V³). Use when you need distances between every pair of vertices.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is Topological Sort and where did you use it?</div>
+  <div class="a">Topological Sort orders vertices of a DAG (Directed Acyclic Graph) so that for every directed edge u→v, u comes before v. We used Kahn's algorithm (BFS-based) to schedule treatment procedures: Admit → Diagnose → X-Ray / Lab Test → Surgery → Recovery → Discharge. It only works on DAGs — if there is a cycle it means a circular dependency.</div>
+</div>
+
+<table>
+  <tr><th>Algorithm</th><th>Type</th><th>Handles −ve weights</th><th>Complexity</th></tr>
+  <tr><td>Dijkstra</td><td>Single-source</td><td>No</td><td>O((V+E) log V)</td></tr>
+  <tr><td>Bellman-Ford</td><td>Single-source</td><td>Yes</td><td>O(VE)</td></tr>
+  <tr><td>Floyd-Warshall</td><td>All-pairs</td><td>Yes</td><td>O(V³)</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>📊 M5 – Divide &amp; Conquer / Sorting</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What we implemented (in scope for review)</h3>
+<ul>
+  <li><strong>Merge Sort</strong> — sorts treatment records by cost (stable, O(n log n))</li>
+  <li><strong>Quick Sort</strong> — ranks diagnoses by frequency (in-place, O(n log n) avg)</li>
+  <li>Heap Sort and Radix/Counting Sort — <em>Coming Soon</em></li>
+</ul>
+
+<div class="qa">
+  <div class="q">Q: Explain Divide &amp; Conquer with Merge Sort.</div>
+  <div class="a"><strong>Divide:</strong> Split the array into two halves. <strong>Conquer:</strong> Recursively sort each half. <strong>Combine:</strong> Merge the two sorted halves into one. Time: O(n log n) always. Space: O(n) extra. It is <strong>stable</strong> — equal elements keep their original order.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: Merge Sort vs Quick Sort — which is better?</div>
+  <div class="a">
+    <ul>
+      <li>Merge Sort: O(n log n) guaranteed, stable, needs O(n) extra space. Better for linked lists and when stability matters.</li>
+      <li>Quick Sort: O(n log n) average, O(n²) worst case, in-place (O(log n) stack). Better for arrays in practice due to cache efficiency.</li>
+    </ul>
+    In PetCare we use Merge Sort for cost-based sorting (stability matters) and Quick Sort for frequency ranking.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>📁 CSV Feature (New Addition)</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<h3>What it does</h3>
+<p>At startup the user chooses between two modes:</p>
+<ul>
+  <li><strong>Load from CSV</strong> — reads <code>data/pets.csv</code> (45 pre-defined pet records) into memory via <code>CsvLoader.java</code> and stores them in <code>AppData.java</code></li>
+  <li><strong>Continue as Raw</strong> — each module generates its own sample data using <code>DataGenerator.java</code></li>
+</ul>
+
+<div class="qa">
+  <div class="q">Q: Why did you add a CSV feature?</div>
+  <div class="a">To make the demonstration more realistic. Hard-coded random data changes every run, making it hard to trace results. The CSV gives us consistent, predictable pet records with realistic names, species, and breeds so we can show the same data across all modules and explain results clearly.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>⚠️ Likely Viva Questions — Quick Answers</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<div class="qa">
+  <div class="q">Q: Why Java?</div>
+  <div class="a">Java is object-oriented, strongly typed, and platform-independent. It has built-in generics, collections, and automatic memory management, making it ideal for implementing and demonstrating data structures clearly without manual memory concerns.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is the time complexity of AVL insertion?</div>
+  <div class="a">O(log n) — the height of an AVL tree is always O(log n), and at most one rotation is needed after insertion.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is a connected component?</div>
+  <div class="a">A maximal subgraph in which every vertex is reachable from every other vertex. We count them using DFS — every time DFS is called on an unvisited vertex, it explores a new component.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: How does Kruskal's algorithm use Union-Find?</div>
+  <div class="a">Union-Find tracks which vertices are in the same component. When Kruskal picks the next cheapest edge (u, v), it calls Find(u) and Find(v) — if they are in the same component, adding the edge would create a cycle, so it's skipped. If they are in different components, the edge is added and Union(u, v) merges the components. This keeps the MST cycle-free.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: Can Dijkstra handle negative weights?</div>
+  <div class="a">No. Dijkstra assumes that once a vertex is finalized, its distance is correct — a negative edge later could give a shorter path and violate this. Use Bellman-Ford for negative weights.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is the balance factor in AVL?</div>
+  <div class="a">Balance Factor = Height(left subtree) − Height(right subtree). It must be −1, 0, or +1 at every node. If it becomes +2 or −2, a rotation is performed to restore balance.</div>
+</div>
+
+<div class="qa">
+  <div class="q">Q: What is lazy propagation in Segment Trees?</div>
+  <div class="a">When we do a range update (e.g., add 5 to all elements from index 2 to 8), instead of updating every affected node immediately, we mark the node with a "lazy tag" and propagate it downward only when that node's children are actually needed. This reduces range update time from O(n) to O(log n).</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>📋 Complexity Quick Reference</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<table>
+  <tr><th>Algorithm / Structure</th><th>Insert</th><th>Search</th><th>Delete</th><th>Space</th></tr>
+  <tr><td>BST (avg)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+  <tr><td>BST (worst)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td></tr>
+  <tr><td>AVL Tree</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+  <tr><td>B-Tree (order t)</td><td>O(log n)</td><td>O(log n)</td><td>O(log n)</td><td>O(n)</td></tr>
+  <tr><td>Segment Tree</td><td>O(log n)</td><td>O(log n) range</td><td>O(log n)</td><td>O(n)</td></tr>
+  <tr><td>Fenwick Tree</td><td>O(log n)</td><td>O(log n) prefix</td><td>O(log n)</td><td>O(n)</td></tr>
+  <tr><td>BFS / DFS</td><td>—</td><td>O(V+E)</td><td>—</td><td>O(V)</td></tr>
+  <tr><td>Dijkstra</td><td>—</td><td>O((V+E) log V)</td><td>—</td><td>O(V)</td></tr>
+  <tr><td>Bellman-Ford</td><td>—</td><td>O(VE)</td><td>—</td><td>O(V)</td></tr>
+  <tr><td>Floyd-Warshall</td><td>—</td><td>O(V³)</td><td>—</td><td>O(V²)</td></tr>
+  <tr><td>Merge Sort</td><td>—</td><td>—</td><td>—</td><td>O(n log n) time, O(n) space</td></tr>
+  <tr><td>Quick Sort</td><td>—</td><td>—</td><td>—</td><td>O(n log n) avg, O(n²) worst</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>💡 Tips for the Viva</h2>
+<!-- ═══════════════════════════════════════ -->
+
+<div class="tip">
+  <strong>Always connect the algorithm to the domain.</strong>
+  Don't just say "we implemented Dijkstra." Say "we use Dijkstra to find the shortest travel route between any two clinics in our healthcare network, for example from MainVet in Chennai to HappyTails in Pune."
+</div>
+
+<div class="tip">
+  <strong>Know your numbers.</strong>
+  The graph has 6 clinics and 9 edges. The CSV has 45 pets with IDs 101–145. BST height vs AVL height on 45 records will differ visibly — AVL will be smaller.
+</div>
+
+<div class="tip">
+  <strong>Coming Soon is fine — explain why.</strong>
+  If asked about M6: "We have the code structure and class stubs ready. The algorithms (Activity Selection, Knapsack, LIS) are planned for the final submission — the menu shows Coming Soon so the reviewer can see we are aware of what remains."
+</div>
+
+<div class="warn">
+  <strong>Don't confuse B-Tree and B+ Tree.</strong>
+  B-Tree stores data in all nodes. B+ Tree stores data only in leaf nodes (leaves are linked). The B+ Tree is what databases actually use for indexes because its linked leaves make range scans fast.
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

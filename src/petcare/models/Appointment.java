@@ -1,8 +1,5 @@
 package petcare.models;
 
-/**
- * Appointment slot for activity selection problems.
- */
 public class Appointment {
     private int appointmentId;
     private int petId;

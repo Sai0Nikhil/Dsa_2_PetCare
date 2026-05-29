@@ -2,20 +2,19 @@ package petcare.utils;
 
 import java.util.Collection;
 
-/**
- * Pretty-printing helpers used by the CLI menus.
- */
 public class DisplayUtils {
 
     public static void header(String title) {
-        String bar = "=".repeat(60);
+        StringBuilder bar = new StringBuilder();
+        for (int i = 0; i < 60; i++) bar.append('=');
         System.out.println("\n" + bar);
         System.out.println("  " + title);
         System.out.println(bar);
     }
 
     public static void subHeader(String title) {
-        String bar = "-".repeat(60);
+        StringBuilder bar = new StringBuilder();
+        for (int i = 0; i < 60; i++) bar.append('-');
         System.out.println("\n" + bar);
         System.out.println("  " + title);
         System.out.println(bar);

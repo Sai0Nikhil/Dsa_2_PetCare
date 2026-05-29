@@ -1,8 +1,5 @@
 package petcare.models;
 
-/**
- * Clinic node used in the veterinary network graph.
- */
 public class Clinic {
     private int clinicId;
     private String name;

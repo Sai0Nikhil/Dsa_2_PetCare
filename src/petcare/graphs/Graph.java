@@ -5,10 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Weighted, undirected graph backed by an adjacency list.
- * Used to model the network of veterinary clinics.
- */
 public class Graph {
 
     public static class Edge {

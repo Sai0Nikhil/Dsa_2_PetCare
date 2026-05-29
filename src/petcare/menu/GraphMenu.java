@@ -11,9 +11,6 @@ import petcare.utils.InputUtils;
 
 import java.util.List;
 
-/**
- * Module M3 - Graph Algorithms for Healthcare Networks.
- */
 public class GraphMenu {
 
     private final List<Clinic> clinics = DataGenerator.generateClinics();

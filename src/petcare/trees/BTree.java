@@ -3,13 +3,9 @@ package petcare.trees;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Minimal B-Tree of order t indexing integer keys (e.g., clinic record IDs).
- * Supports insert and search; designed to demonstrate multiway tree structure.
- */
 public class BTree {
 
-    private final int t; // minimum degree
+    private final int t;
     private Node root;
 
     private static class Node {

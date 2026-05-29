@@ -1,8 +1,5 @@
 package petcare.models;
 
-/**
- * Pet entity representing an animal registered in the clinic.
- */
 public class Pet {
     private int petId;
     private String name;

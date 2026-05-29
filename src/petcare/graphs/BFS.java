@@ -6,10 +6,6 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
-/**
- * Breadth-first traversal — used to identify the nearest clinics from a
- * given source in terms of hop-count.
- */
 public class BFS {
 
     public static List<Integer> traverse(Graph g, int source) {
@@ -31,7 +27,6 @@ public class BFS {
         return order;
     }
 
-    /** Returns hop-distance from source to every vertex (-1 if unreachable). */
     public static int[] hopDistances(Graph g, int source) {
         int[] dist = new int[g.vertices()];
         Arrays.fill(dist, -1);

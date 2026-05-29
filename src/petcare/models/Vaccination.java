@@ -1,13 +1,10 @@
 package petcare.models;
 
-/**
- * Vaccination record for a pet.
- */
 public class Vaccination {
     private int vaccinationId;
     private int petId;
     private String vaccineName;
-    private int dueDay; // day index for range queries
+    private int dueDay;
 
     public Vaccination(int vaccinationId, int petId, String vaccineName, int dueDay) {
         this.vaccinationId = vaccinationId;

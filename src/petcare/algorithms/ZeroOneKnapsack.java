@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * 0/1 Knapsack — picks an optimal subset of treatment plans whose total
- * cost fits within a fixed clinic budget, maximising total benefit.
- */
 public class ZeroOneKnapsack {
 
     public static class Plan {

@@ -1,17 +1,16 @@
 package petcare.menu;
 
+import petcare.utils.AppData;
 import petcare.utils.DisplayUtils;
 import petcare.utils.InputUtils;
 
-/**
- * Top-level CLI router that dispatches to the six module sub-menus.
- */
 public class MainMenu {
 
     public void run() {
         DisplayUtils.header("PetCare - Smart Veterinary Clinic & Pet Health Management");
-        System.out.println("  Welcome! This system demonstrates the six DSA modules through");
-        System.out.println("  realistic clinic-management scenarios.");
+        System.out.println("  Data mode : " + (AppData.isCsvMode()
+                ? "CSV (" + AppData.getPets().size() + " pets loaded from data/pets.csv)"
+                : "Raw (data generated on-the-fly)"));
 
         while (true) {
             DisplayUtils.subHeader("MAIN MENU");

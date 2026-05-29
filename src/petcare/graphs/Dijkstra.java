@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-/**
- * Dijkstra's algorithm — fastest non-negative weighted path from a source
- * clinic to all other clinics.
- */
 public class Dijkstra {
 
     public static int[] shortestPaths(Graph g, int source) {

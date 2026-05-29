@@ -2,9 +2,6 @@ package petcare.utils;
 
 import java.util.Scanner;
 
-/**
- * Reusable scanner utility for safe console input.
- */
 public class InputUtils {
     private static final Scanner sc = new Scanner(System.in);
 

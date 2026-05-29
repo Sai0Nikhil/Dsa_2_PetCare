@@ -1,8 +1,5 @@
 package petcare.graphs;
 
-/**
- * Floyd-Warshall — all-pairs shortest paths between every pair of clinics.
- */
 public class FloydWarshall {
 
     public static final int INF = Integer.MAX_VALUE / 2;

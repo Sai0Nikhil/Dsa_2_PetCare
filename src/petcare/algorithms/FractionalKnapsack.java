@@ -3,10 +3,6 @@ package petcare.algorithms;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * Fractional Knapsack — for allocating divisible clinic resources within
- * a budget (e.g., grams of antiseptic, hours of doctor time).
- */
 public class FractionalKnapsack {
 
     public static class Item {

@@ -1,15 +1,12 @@
 package petcare.models;
 
-/**
- * Treatment record for a pet at a clinic.
- */
 public class Treatment {
     private int treatmentId;
     private int petId;
     private String diagnosis;
     private String medication;
     private double cost;
-    private int dayIndex; // day number for analytics (e.g., 1..N)
+    private int dayIndex;
 
     public Treatment(int treatmentId, int petId, String diagnosis, String medication, double cost, int dayIndex) {
         this.treatmentId = treatmentId;

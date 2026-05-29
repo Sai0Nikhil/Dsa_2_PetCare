@@ -3,13 +3,8 @@ package petcare.sorting;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Quick sort using Lomuto partitioning. Used here to rank treatments by
- * frequency (descending count). Sorts an int[] in-place.
- */
 public class QuickSort {
 
-    /** Sort frequencies descending and return the parallel-sorted labels. */
     public static String[] rankByFrequency(Map<String, Integer> freq) {
         int n = freq.size();
         String[] labels = freq.keySet().toArray(new String[0]);
@@ -33,12 +28,11 @@ public class QuickSort {
         quickSort(a, sib, p + 1, hi);
     }
 
-    /** Descending Lomuto partition (pivot = last). */
     private static int partition(int[] a, String[] sib, int lo, int hi) {
         int pivot = a[hi];
         int i = lo - 1;
         for (int j = lo; j < hi; j++) {
-            if (a[j] >= pivot) { // descending
+            if (a[j] >= pivot) {
                 i++;
                 swap(a, sib, i, j);
             }

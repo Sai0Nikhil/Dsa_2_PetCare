@@ -2,10 +2,6 @@ package petcare.sorting;
 
 import java.util.Arrays;
 
-/**
- * LSD Radix sort + Counting sort — perfect for sorting pet identification
- * numbers, which fall within a small integer range.
- */
 public class RadixSort {
 
     public static void countingSort(int[] a) {

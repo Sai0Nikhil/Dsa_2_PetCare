@@ -1,13 +1,10 @@
 package petcare.trees;
 
 import petcare.models.Pet;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Binary Search Tree indexed by PetID. Supports insert/search/delete and
- * in-order, pre-order, post-order traversals.
- */
 public class BST {
 
     private static class Node {
@@ -60,7 +57,7 @@ public class BST {
 
     private void inOrder(Node n, List<Pet> out) {
         if (n == null) return;
-        inOrder(n.left, out);  out.add(n.pet); inOrder(n.right, out);
+        inOrder(n.left, out); out.add(n.pet); inOrder(n.right, out);
     }
     private void preOrder(Node n, List<Pet> out) {
         if (n == null) return;

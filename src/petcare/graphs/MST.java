@@ -1,15 +1,10 @@
 package petcare.graphs;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-/**
- * Minimum Spanning Tree — Kruskal's algorithm with Union-Find, plus a Prim
- * variant. Used to optimise the clinic collaboration network.
- */
 public class MST {
 
     public static class Result {

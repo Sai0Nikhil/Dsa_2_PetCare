@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Longest Increasing Subsequence (O(n log n) patience-sort variant) — used
- * to gauge the longest streak of consistent improvement in pet health
- * indicators (weight, activity score, ...).
- */
 public class LIS {
 
     public static class Result {

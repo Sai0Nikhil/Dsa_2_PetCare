@@ -1,15 +1,11 @@
 package petcare;
 
 import petcare.menu.MainMenu;
+import petcare.menu.StartupMenu;
 
-/**
- * Entry point for the PetCare command-line application.
- * Run from the project root with:
- *     mvn -q exec:java -Dexec.mainClass=petcare.PetCareApp
- * or simply run this class from STS / Eclipse / IntelliJ.
- */
 public class PetCareApp {
     public static void main(String[] args) {
-        new MainMenu().run();
+        new StartupMenu().run();   // data-init screen (CSV vs raw)
+        new MainMenu().run();      // module selection loop
     }
 }

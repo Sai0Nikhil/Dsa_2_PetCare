@@ -11,30 +11,36 @@ import petcare.utils.InputUtils;
 
 import java.util.List;
 
-/**
- * Module M6 - Greedy Algorithms & Dynamic Programming.
- */
 public class GreedyDPMenu {
 
     public void show() {
         while (true) {
             DisplayUtils.header("M6 - Greedy & Dynamic Programming");
-            System.out.println("  1. Activity Selection: maximise appointments");
-            System.out.println("  2. Fractional Knapsack: allocate clinic resources");
-            System.out.println("  3. 0/1 Knapsack: pick treatment plans within budget");
-            System.out.println("  4. Longest Increasing Subsequence: pet health trends");
+            System.out.println("  1. Activity Selection: maximise appointments    [Coming Soon]");
+            System.out.println("  2. Fractional Knapsack: allocate clinic resources [Coming Soon]");
+            System.out.println("  3. 0/1 Knapsack: pick treatment plans within budget [Coming Soon]");
+            System.out.println("  4. LIS: pet health trend analysis              [Coming Soon]");
             System.out.println("  0. Back to main menu");
             int c = InputUtils.readIntInRange("Choice: ", 0, 4);
             switch (c) {
-                case 1: activity(); break;
-                case 2: fractional(); break;
-                case 3: zeroOne(); break;
-                case 4: lis(); break;
+                case 1: comingSoon("Activity Selection"); break;
+                case 2: comingSoon("Fractional Knapsack"); break;
+                case 3: comingSoon("0/1 Knapsack"); break;
+                case 4: comingSoon("Longest Increasing Subsequence (LIS)"); break;
                 case 0: return;
                 default: break;
             }
             InputUtils.pause();
         }
+    }
+
+    private static void comingSoon(String topic) {
+        System.out.println();
+        System.out.println("  +------------------------------------------+");
+        System.out.println("  |             COMING SOON                  |");
+        System.out.println("  |  " + String.format("%-40s", topic) + "|");
+        System.out.println("  |  Not yet covered in current review scope.|");
+        System.out.println("  +------------------------------------------+");
     }
 
     private void activity() {

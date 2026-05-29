@@ -12,9 +12,6 @@ import petcare.utils.InputUtils;
 
 import java.util.List;
 
-/**
- * Module M4 - Shortest Path Optimisation.
- */
 public class ShortestPathMenu {
 
     private final List<Clinic> clinics = DataGenerator.generateClinics();

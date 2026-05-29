@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-/**
- * Kahn's algorithm — topological order for scheduling treatment procedures
- * with prerequisite dependencies. Operates on a DIRECTED graph.
- */
 public class TopologicalSort {
 
     public static List<Integer> sort(Graph directed) {

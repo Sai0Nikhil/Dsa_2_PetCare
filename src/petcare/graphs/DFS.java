@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-/**
- * Iterative DFS for analyzing treatment-workflow connectivity.
- */
 public class DFS {
 
     public static List<Integer> traverse(Graph g, int source) {
@@ -20,7 +17,6 @@ public class DFS {
             if (visited[u]) continue;
             visited[u] = true;
             order.add(u);
-            // push neighbours; reverse order keeps lower-index neighbour first
             List<Graph.Edge> neigh = g.neighbours(u);
             for (int i = neigh.size() - 1; i >= 0; i--) {
                 int v = neigh.get(i).to;

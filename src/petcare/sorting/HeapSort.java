@@ -1,11 +1,7 @@
 package petcare.sorting;
 
-/**
- * Heap sort used to identify the most-common pet diseases (top-K by count).
- */
 public class HeapSort {
 
-    /** Sorts an int[] in-place ascending. */
     public static void sort(int[] a) {
         int n = a.length;
         for (int i = n / 2 - 1; i >= 0; i--) heapify(a, n, i);
@@ -15,7 +11,6 @@ public class HeapSort {
         }
     }
 
-    /** Returns indices ordered by descending count using a max-heap. */
     public static int[] sortIndicesDescending(int[] counts) {
         int n = counts.length;
         int[] idx = new int[n];
@@ -26,7 +21,6 @@ public class HeapSort {
             swap(data, idx, 0, i);
             maxHeapify(data, idx, i, 0);
         }
-        // result currently ascending → reverse for descending
         for (int i = 0, j = n - 1; i < j; i++, j--) swap(data, idx, i, j);
         return idx;
     }

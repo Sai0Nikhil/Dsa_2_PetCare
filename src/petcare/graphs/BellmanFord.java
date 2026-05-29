@@ -2,10 +2,6 @@ package petcare.graphs;
 
 import java.util.Arrays;
 
-/**
- * Bellman-Ford — handles negative weights (e.g., discounted referral edges)
- * and detects negative-weight cycles.
- */
 public class BellmanFord {
 
     public static class Result {
