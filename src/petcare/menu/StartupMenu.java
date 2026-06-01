@@ -20,8 +20,8 @@ public class StartupMenu {
 
     public void run() {
         DisplayUtils.header("PetCare - Smart Veterinary Clinic & Pet Health Management");
-        System.out.println("  Welcome! This system demonstrates all six DSA modules through");
-        System.out.println("  realistic veterinary-clinic management scenarios.");
+//        System.out.println("  Welcome! This system demonstrates all six DSA modules through");
+//        System.out.println("  realistic veterinary-clinic management scenarios.");
 
         DisplayUtils.subHeader("DATA INITIALISATION");
         System.out.println("  Choose how pet data should be loaded for this session:\n");
